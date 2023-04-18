@@ -55,3 +55,5 @@ $ rails db:prepare
 ```bash
 $ bin/dev
 ```
+
+### Проект доступен по ссылке http://next.remosoft.local:3000/
