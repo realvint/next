@@ -1,0 +1,30 @@
+Arguments: 
+  /home/vi/.asdf/installs/nodejs/16.19.0/bin/node /home/vi/.asdf/installs/nodejs/16.19.0/bin/yarn add esbuild
+
+PATH: 
+  /home/vi/.asdf/plugins/nodejs/shims:/home/vi/.asdf/installs/nodejs/16.19.0/bin:/home/vi/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/bin:/home/vi/.asdf/installs/ruby/3.2.2/bin:/usr/local/opt/libpq/bin:/home/vi/.asdf/shims:/home/vi/.asdf/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.19.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  Error: getaddrinfo EAI_AGAIN registry.yarnpkg.com
+      at GetAddrInfoReqWrap.onlookup [as oncomplete] (node:dns:109:26)
+
+npm manifest: 
+  {
+    "name": "app",
+    "private": "true"
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
