@@ -1,0 +1,12 @@
+tr.align-middle id="#{dom_id(counterparty)}"
+  td.ps-3
+    = link_to counterparty do
+      = counterparty.name
+
+  td = number_to_phone(counterparty.phone)
+
+  td.w-2.text-center
+    =link_to icon('far fa-edit'), edit_counterparty_path(counterparty), data: { turbo_frame: 'modal'}
+
+  td.w-2.text-center
+    = link_to icon('far fa-trash-alt'), counterparty, data: { turbo_method: :delete, turbo_confirm: t('.confirm') }

@@ -4,5 +4,14 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import AutohideController from "./autohide_controller"
+application.register("autohide", AutohideController)
+
+import DebounceController from "./debounce_controller"
+application.register("debounce", DebounceController)
+
+import PhoneInputController from "./phone_input_controller"
+application.register("phone_input", PhoneInputController)
+
+import TurboModalController from "./turbo_modal_controller"
+application.register("turbo_modal", TurboModalController)
