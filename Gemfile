@@ -16,13 +16,15 @@ gem 'jsbundling-rails'
 
 gem 'jbuilder'
 gem 'redis', '~> 4.0'
+gem 'sassc-rails'
 gem 'stimulus-rails'
-# gem "sassc-rails"
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'dotenv-rails'
-  gem 'faker'
+  gem 'factory_bot_rails'
+  gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'main'
+  gem 'rspec-rails', '~> 6.0.0'
   gem 'rubocop', require: false
   gem 'scss_lint', require: false
 end
@@ -32,4 +34,9 @@ group :development do
 
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
+end
+
+group :test do
+  gem 'rails-controller-testing'
+  gem 'shoulda-matchers', '~> 5.0'
 end
