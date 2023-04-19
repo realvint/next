@@ -1,0 +1,22 @@
+<% if params[:source] == 'order' %>
+  <% if @counterparty.errors.any? %>
+    <%= turbo_stream.update('counterparty-form', partial: 'counterparties/form', locals: { counterparty: @counterparty, source: 'order' }) %>
+  <% else %>
+    <%= turbo_stream.update('counterparties', partial: 'orders/counterparty_dropdown', locals: { counterparty: @counterparty }) %>
+    <%= turbo_stream.update('counterparty-modal', nil) %>
+  <% end %>
+
+<% else %>
+  <% if @counterparty.errors.any? %>
+    <%= turbo_stream.replace 'modal' do %>
+      <%= render 'shared/modal', title: 'Новый контрагент' do %>
+        <%= render 'form', counterparty: @counterparty %>
+      <% end %>
+    <% end %>
+  <% else %>
+    <%= turbo_stream.prepend('counterparties-list', @counterparty) %>
+    <%= turbo_stream.update('modal', nil) %>
+  <% end %>
+<% end %>
+
+<%= prepend_flash %>

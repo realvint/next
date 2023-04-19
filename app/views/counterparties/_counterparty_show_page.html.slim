@@ -1,0 +1,24 @@
+.row
+  .col-md-10.col-xxl-6.m-auto.mt-md-2
+    .d-flex.justify-content-between.mb-3
+      .d-flex
+        div
+          = link_to icon('fa fa-arrow-left'), counterparties_path, class: 'btn btn-sm btn-outline-secondary me-2', title: 'Назад'
+        h4
+          = @counterparty.name
+      div
+        = link_to icon('fa fa-pencil-alt'), edit_counterparty_path((@counterparty), source: 'show'),
+          data: { turbo_frame: 'modal'}, class: 'btn btn-sm btn-outline-secondary', title: 'Редактировать'
+
+    table.table.table-bordered
+      tr
+        th Имя
+        td = @counterparty.name
+
+      tr
+        th Телефон
+        td = @counterparty.phone
+
+      tr
+        th Дата создания
+        td = l @counterparty.created_at, format: :long

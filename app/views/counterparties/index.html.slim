@@ -1,0 +1,35 @@
+.row
+  .col-md-10.col-xxl-8.m-auto
+    .row.pt-3.pb-2
+      .col-md-2
+        h4 Контрагенты
+      .col-md-5
+        = form_with url: counterparties_path, method: :get,
+          data: { controller: 'debounce', action: 'input->debounce#submit', turbo_frame: 'counterparties', turbo_action: 'advance' } do |f|
+          div.input-group
+            = f.text_field :q, placeholder: 'Поиск по ФИО', autocomplete: 'off', class: 'form-control form-control-sm'
+            button.btn.btn-sm.btn-outline-primary type='submit' title='Искать'
+              span.fa.fa-search
+
+      .col-md-5.text-md-end.pt-md-0.pt-2
+        = link_to t('.add'), new_counterparty_path, data: { turbo_frame: 'modal' },
+          class: 'btn btn-sm btn-outline-primary mb-1'
+
+    = turbo_frame_tag 'counterparties' do
+      .table-responsive
+        table.table.table-hover
+          thead
+            tr.bg-light
+              th.ps-3 Имя
+              th Телефон
+              th.text-center[colspan='2']
+          tbody#counterparties-list
+            - if @counterparties.count.positive?
+              = render @counterparties
+            - else
+              tr
+                td
+                td colspan='3'
+                  = link_to 'Добавить', new_counterparty_path, data: { turbo_frame: 'modal' }
+
+        = pagination(@pagy, link_extra: 'data-turbo-action="advance"')

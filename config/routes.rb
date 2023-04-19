@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  constraints subdomain: 'next' do
+    root 'counterparties#index'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+    resources :counterparties
+  end
 end
