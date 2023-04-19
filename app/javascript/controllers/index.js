@@ -11,7 +11,7 @@ import DebounceController from "./debounce_controller"
 application.register("debounce", DebounceController)
 
 import PhoneInputController from "./phone_input_controller"
-application.register("phone_input", PhoneInputController)
+application.register("phone-input", PhoneInputController)
 
 import TurboModalController from "./turbo_modal_controller"
-application.register("turbo_modal", TurboModalController)
+application.register("turbo-modal", TurboModalController)
