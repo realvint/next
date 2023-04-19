@@ -1,0 +1,27 @@
+= form_with model: counterparty do |f|
+  .row
+    .col
+      .mb-3
+        = f.label :phone, 'Номер телефона', class: 'form-label'
+        span.ps-1.text-danger *
+        = f.text_field :phone, id: 'counterparty-phone', placeholder: 'В любом формате',
+          class: "form-control form-control-sm phone-input focus-input #{'is-invalid' if counterparty.errors.messages_for(:phone).any?}",
+          data: {controller: 'phone-input'}
+        = errors_for counterparty, :phone
+
+  .row
+    .col
+      .mb-3
+        = f.label :name, 'Имя', class: 'form-label'
+        span.ps-1.text-danger *
+        = f.text_field :name, id: 'counterparty-name',
+          class: "form-control form-control-sm #{'is-invalid' if counterparty.errors.messages_for(:name).any?}"
+        = errors_for counterparty, :name
+
+  .row
+    .col
+      .mt-2
+        = f.submit class: 'btn btn-sm btn-primary'
+
+  - source ||= ''
+  = hidden_field_tag :source, source

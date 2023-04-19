@@ -1,2 +1,48 @@
 ru:
-  hello: Привет мир!
+  activerecord:
+    attributes:
+      counterparty:
+        name: 'Имя'
+        phone: 'Номер телефона'
+
+  time:
+    formats:
+      date: '%-d %B %Y'
+      datetime: '%d.%m.%y - %H:%M'
+
+  helpers:
+    label:
+      counterparty:
+        name: 'Имя'
+        phone: 'Номер телефона'
+    submit:
+      counterparty:
+        create: 'Создать'
+        update: 'Обновить'
+  counterparties:
+    form:
+      close: 'Закрыть'
+    counterparty:
+      confirm: 'Вы уверены? Контрагент будет удален!'
+    index:
+      add: 'Добавить контрагента'
+      name: 'Имя'
+      phone: 'Телефон'
+    show:
+      back: 'Назад'
+      edit: 'Редактировать'
+      name: 'Имя'
+      phone: 'Телефон'
+      created_at: 'Создан'
+    new:
+      title: 'Новый контрагент'
+      back: 'Назад'
+    edit:
+      title: 'Редактировать контрагента'
+      back: 'Назад'
+    create:
+      created: 'Новый контрагент успешно создан'
+    update:
+      updated: 'Данные контрагента успешно обновлены'
+    destroy:
+      deleted: 'Контрагент был удалён'

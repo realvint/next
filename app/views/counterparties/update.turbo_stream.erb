@@ -1,0 +1,19 @@
+<% if @counterparty.errors.any? %>
+  <%= turbo_stream.replace :modal do %>
+    <%= render 'shared/modal', title: 'Редактировать контрагента' do %>
+      <%= render 'form', counterparty: @counterparty, source: params[:source] %>
+    <% end %>
+  <% end %>
+<% elsif params[:source] == 'show' %>
+  <%= turbo_stream.update @counterparty do %>
+    <%= render 'counterparties/counterparty_show_page', counterparty: @counterparty %>
+    <%= turbo_stream.update('modal', nil) %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.replace @counterparty do %>
+    <%= render 'counterparties/counterparty', counterparty: @counterparty %>
+    <%= turbo_stream.update('modal', nil) %>
+  <% end %>
+<% end %>
+
+<%= prepend_flash %>
