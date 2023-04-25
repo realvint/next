@@ -1,6 +1,6 @@
 tr.align-middle id="#{dom_id(counterparty)}"
   td.ps-3
-    = link_to counterparty do
+    = link_to counterparty, data:{ turbo: false } do
       = counterparty.name
 
   td = number_to_phone(counterparty.phone)
