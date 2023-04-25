@@ -1,4 +1,7 @@
 class Counterparty < ApplicationRecord
+  has_many :phones, dependent: :destroy, inverse_of: :counterparty
+  accepts_nested_attributes_for :phones, allow_destroy: true, reject_if: :all_blank
+
   validates :name, presence: true
   validates :phone, presence: true, uniqueness: true
 

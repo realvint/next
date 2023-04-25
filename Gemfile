@@ -14,6 +14,7 @@ gem 'turbo-rails'
 gem 'cssbundling-rails'
 gem 'jsbundling-rails'
 
+gem "cocoon"
 gem 'jbuilder'
 gem 'pagy', '~> 6.0'
 gem 'ransack', '~> 4.0.0'
