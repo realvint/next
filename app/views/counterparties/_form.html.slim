@@ -11,14 +11,20 @@
   .row
     .col
       .mb-3[id = 'phones']
-        .mb-2
-          label[for='phone'] Номер телефона
-          span.ps-1.text-danger *
-        = f.fields_for :phones do |phone|
-          = render 'phone_fields', f: phone
-        .links
-          .input-group.mb-3
-            = link_to_add_association 'Добавить номер', f, :phones
+        label.form-label Номер телефона
+        span.ps-1.text-danger *
+
+        .input-group.mb-3
+          = f.text_field :phone, id: 'counterparty-phone', placeholder: 'В любом формате',
+            class: 'form-control form-control-sm phone-input focus-input', data: {controller: 'phone-input'}
+
+          = link_to_add_association f, :phones,  data: { 'association-insertion-node': '.phone-items', 'association-insertion-method': 'append' }, class: 'input-group-text' do
+            span.fa.fa-plus
+
+        .phone-items
+          = f.fields_for :phones do |phone|
+            = render 'phone_fields', f: phone
+
         = errors_for counterparty, :phone
 
   .row

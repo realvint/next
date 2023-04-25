@@ -10,7 +10,6 @@ class CounterpartiesController < ApplicationController
 
   def new
     @counterparty = Counterparty.new
-    @counterparty.phones.build
   end
 
   def create

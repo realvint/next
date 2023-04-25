@@ -1,7 +1,8 @@
 .nested-fields
   .input-group.mb-3
     = f.text_field :value, id: 'counterparty-phone', placeholder: 'В любом формате',
-      class: "form-control form-control-sm phone-input focus-input,
-      data: {controller: 'phone-input'}"
+      class: 'form-control form-control-sm phone-input focus-input',
+      data: {controller: 'phone-input'}
+
     = link_to_remove_association(f, class: 'input-group-text', tabindex: "-1") do
       span.fa.fa-trash-alt
