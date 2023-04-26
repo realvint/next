@@ -1,0 +1,33 @@
+.row
+  .col-md-12.col-xxl-10.m-auto.mt-md-2
+    .row
+      .col-md-2.mt-2
+        p = link_to 'Создать товар', new_product_path
+        p = link_to 'Импорт', new_products_import_path
+
+      .col-md-10
+        = search_form_for @q,
+          data: { controller: 'debounce', action: 'input->debounce#submit', turbo_frame: 'products', turbo_action: 'advance' } do |f|
+          .input-group.mb-3.mt-2
+            = f.search_field :title_or_sku_has_every_term, placeholder: 'Название, штрихкод или артикул',
+              autofocus: 'true', class: 'form-control form-control-sm'
+
+            button.btn.btn-sm.btn-outline-primary type='submit' title='Искать'
+              span.fa.fa-search
+
+        = turbo_frame_tag 'products' do
+          .table-responsive
+            table.table.table-hover
+              thead
+                tr.bg-light
+                  th.w-6.text-center
+                    | Арт.
+                  th
+                    | Название
+                  th.w-5.text-center
+                    | Наличие
+                  th.text-center[colspan='2']
+
+              = render @products
+
+          = pagination @pagy

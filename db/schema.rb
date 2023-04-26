@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_04_25_044319) do
+ActiveRecord::Schema[7.0].define(version: 2023_04_26_121101) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -29,6 +29,18 @@ ActiveRecord::Schema[7.0].define(version: 2023_04_25_044319) do
     t.datetime "updated_at", null: false
     t.index ["counterparty_id"], name: "index_phones_on_counterparty_id"
     t.index ["value"], name: "index_phones_on_value", unique: true
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "title", null: false
+    t.string "sku"
+    t.string "barcode"
+    t.integer "in_stock", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["barcode"], name: "index_products_on_barcode", unique: true
+    t.index ["sku"], name: "index_products_on_sku", unique: true
+    t.index ["title"], name: "index_products_on_title", unique: true
   end
 
   add_foreign_key "phones", "counterparties"

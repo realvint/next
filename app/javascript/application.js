@@ -2,12 +2,9 @@
 import '@hotwired/turbo-rails'
 import '@fortawesome/fontawesome-free/js/all'
 import './controllers'
+import './jquery'
 import * as bootstrap from "bootstrap"
 import '@nathanvda/cocoon'
-
-import jquery from 'jquery'
-window.jQuery = jquery
-window.$ = jquery
 
 document.addEventListener('turbo:load', () => {
   $('body').on('click', '.add_fields', (e) => {

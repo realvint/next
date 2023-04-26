@@ -1,0 +1,30 @@
+= form_with(model: @product) do |f|
+  = render 'shared/errors', resource: @product
+
+  .row
+    .col
+      .mb-2
+        = f.label :title, 'Название', class: 'form-label'
+        span.ps-1.text-danger *
+        = f.text_field :title, class: 'form-control form-control-sm'
+
+  .row
+    .col-md-6
+      - if @product.sku
+        .mb-2
+          label.form-label
+            | Артикул
+          .form-control.form-control-sm.bg-light
+            = @product.sku
+
+    .col-md-6
+      - if @product.barcode
+        .mb-2
+          label.form-label
+            | Штрихкод
+          .form-control.form-control-sm.bg-light
+            = @product.barcode
+
+  .mt-2
+    = f.submit class: 'btn btn-sm btn-primary me-1'
+    = link_to 'Назад', :back, class: 'btn btn-sm btn-outline-secondary'
