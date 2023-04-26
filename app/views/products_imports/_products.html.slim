@@ -1,0 +1,9 @@
+- return if products.empty?
+
+table.table.table-stripped
+  tr
+    th Штрихкод
+    th Арт.
+    th Наименование
+
+  = render partial: 'product', collection: products

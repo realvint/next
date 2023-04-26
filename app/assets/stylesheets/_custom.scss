@@ -1,0 +1,100 @@
+form-label {
+  margin-bottom: 0.25rem;
+}
+
+.table {
+  --bs-table-hover-bg: #f8f9fa;
+}
+
+.table > :not(:first-child) {
+  border-top: 0;
+}
+
+.form-error {
+  color: var(--bs-red);
+}
+
+.is-invalid {
+  box-shadow: none!important;
+}
+
+mark {
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: .85rem;
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+a {
+  color: #333;
+  text-decoration: none;
+  &:hover {
+    color:  #ff6a33;
+    text-decoration: underline;
+  }
+}
+
+h4 {
+  font-size: 25px!important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-box-shadow: 0 0 0 30px  rgba(249, 164, 130, 0.7) inset !important;
+}
+
+.field_with_errors {
+  display: inline;
+}
+
+.fs-09 { font-size: .9rem;}
+
+.fs-075 { font-size: .75rem;}
+
+.w-2 { width: 2rem; }
+
+.w-2-5 { width: 2.5rem; }
+
+.w-3 { width: 3rem; }
+
+.w-4 { width: 4rem; }
+
+.w-5 { width: 5rem; }
+
+.w-6 { width: 6rem; }
+
+.w-7 { width: 7rem; }
+
+.w-8 { width: 8rem; }
+
+.w-9 { width: 9rem; }
+
+.w-10 { width: 10rem; }
+
+.w-19 { width: 19rem; }
+
+.event {
+  margin-bottom: 1rem;
+}
+
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.form-control:focus {
+  background-color: rgba(250, 235, 215, 0.2);
+  border-color: rgba(249, 164, 130, 0.7);
+  box-shadow: none;
+}

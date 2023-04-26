@@ -14,10 +14,13 @@ gem 'turbo-rails'
 gem 'cssbundling-rails'
 gem 'jsbundling-rails'
 
+gem "cocoon"
 gem 'jbuilder'
 gem 'pagy', '~> 6.0'
+gem 'phonelib'
 gem 'ransack', '~> 4.0.0'
 gem 'redis', '~> 4.0'
+gem 'rubyXL'
 gem 'sassc-rails'
 gem 'slim-rails', '~> 3.6.1'
 gem 'stimulus-rails'

@@ -1,0 +1,38 @@
+.container
+  .row.justify-content-around.pt-2
+    .d-flex.mb-3
+      div
+        = link_to icon('fa fa-arrow-left'), products_path, class: 'btn btn-sm btn-outline-secondary me-2'
+
+      h4 = @product.title
+
+    .col-md-12
+      table.table.table-bordered
+        tr
+          th Название
+          td = @product.title
+        tr
+          th Наличие
+          td #{@product.in_stock} шт.
+        tr
+          th Артикуль
+          td = @product.sku
+
+        tr
+          th Щтрихкот
+          td = @product.barcode
+
+        tr
+          th Товар обновлён
+          td = l @product.updated_at, format: :long
+        tr
+          th Товар создан
+          td = l @product.created_at, format: :long
+
+      div
+        = link_to 'Назад', products_path, class: 'btn btn-outline-secondary btn-sm me-1'
+
+        = link_to 'Редактировать', edit_product_path(@product), class: 'btn btn-outline-primary btn-sm me-1'
+
+        = link_to 'Удалить', @product, class: 'btn btn-outline-danger btn-sm',
+          data: { turbo_method: :delete, turbo_confirm: 'Удаляем? точно?' }

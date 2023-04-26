@@ -77,7 +77,7 @@ class CounterpartiesController < ApplicationController
   end
 
   def counterparty_params
-    params.require(:counterparty).permit(:name, :phone)
+    params.require(:counterparty).permit(:name, :phone, phones_attributes: %i[id value _destroy])
   end
 
   def render_turbo_stream_error

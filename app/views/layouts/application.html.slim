@@ -19,6 +19,14 @@ html
       #flash
         = render 'shared/flash'
 
+      .container
+        .d-flex.mt-3
+          h3.me-2
+            = link_to 'Товары', products_path
+          h3
+            = link_to 'Клиенты', counterparties_path
+      hr
+
       = yield
 
     = turbo_frame_tag :modal

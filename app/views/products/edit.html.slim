@@ -1,0 +1,11 @@
+.row
+  .col-md-6.col-xxl-4.m-auto.mt-md-2
+    .card.shadow.p-3
+      .d-md-flex.py-2
+        .mb-md-2
+          .d-flex
+            div
+              = link_to icon('fa fa-arrow-left'), products_path, class: 'btn btn-sm btn-outline-secondary me-2'
+            h4 Редактировать товар
+
+      = render 'form'

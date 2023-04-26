@@ -1,0 +1,42 @@
+- import ||= nil
+- error ||= nil
+
+.row
+  .col-md-8.col-xxl-6.m-auto.mt-md-4
+    .card.shadow.mt-2.p-3
+      .mb-2.d-flex
+        div
+          = link_to icon('fa fa-arrow-left'), :products,
+                  class: 'btn btn-sm btn-outline-secondary me-2', title: 'Назад'
+        h4
+          | Импорт товаров из Excel
+
+      = form_tag products_import_path, data: { turbo: false }, multipart: true do
+        .form-group.mb-3
+          label for="file"
+            | Выберите файл в формате xlsx:
+          = file_field_tag :file, accept: '.xlsx', required: true, class: 'form-control form-control-sm'
+
+        .actions
+          = submit_tag 'Загрузить', class: 'btn btn-outline-primary btn-sm'
+
+      - if action_name == 'create'
+        h4
+          | Результат
+
+        - unless error
+          h5
+            | Ошибки: #{import.errors.count}
+          = render 'products', products: import.errors
+
+          h5
+            | Обновлено: #{import.updated.count}
+          = render 'products', products: Product.where(id: import.updated)
+
+          h5
+            | Добавлено: #{import.created.count}
+          = render 'products', products: Product.where(id: import.created)
+
+        - else
+          p
+            | Файл имеет неверный формат.
