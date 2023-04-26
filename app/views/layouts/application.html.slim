@@ -7,7 +7,6 @@ html
     = csrf_meta_tags
     = csp_meta_tag
 
-    <script src="https://code.jquery.com/jquery-3.6.4.slim.js" integrity="sha256-dWvV84T6BhzO4vG6gWhsWVKVoa4lVmLnpBOZh/CAHU4=" crossorigin="anonymous"></script>
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true
 
@@ -19,6 +18,14 @@ html
     #main-container.container-fluid
       #flash
         = render 'shared/flash'
+
+      .container
+        .d-flex.mt-3
+          h3.me-2
+            = link_to 'Товары', products_path
+          h3
+            = link_to 'Клиенты', counterparties_path
+      hr
 
       = yield
 

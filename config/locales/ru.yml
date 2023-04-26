@@ -4,6 +4,8 @@ ru:
       counterparty:
         name: 'Имя'
         phone: 'Номер телефона'
+      product:
+        title: 'Название'
 
   time:
     formats:
@@ -17,6 +19,9 @@ ru:
         phone: 'Номер телефона'
     submit:
       counterparty:
+        create: 'Создать'
+        update: 'Обновить'
+      product:
         create: 'Создать'
         update: 'Обновить'
   counterparties:

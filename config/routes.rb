@@ -3,5 +3,6 @@ Rails.application.routes.draw do
     root 'counterparties#index'
 
     resources :counterparties
+    resources :products
   end
 end

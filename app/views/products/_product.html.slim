@@ -1,0 +1,16 @@
+tr.align-middle id="#{dom_id(product)}"
+  td
+    = product.sku
+
+  td
+    = link_to product_path(product), data: { turbo: false } do
+      = highlight(product.title, params.dig(:q, :title_or_sku_has_every_term)&.split)
+
+  td.text-center
+    = product.in_stock
+
+  td.w-2.text-center
+    =link_to icon('far fa-edit'), edit_product_path(product), data: { turbo: false }
+
+  td.w-2.text-center
+    = link_to icon('far fa-trash-alt'), product, data: { turbo_method: :delete, turbo_confirm: 'Товар будет удалён нахер!' }
