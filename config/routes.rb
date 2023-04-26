@@ -4,5 +4,6 @@ Rails.application.routes.draw do
 
     resources :counterparties
     resources :products
+    resource :products_import, only: %i[new create]
   end
 end

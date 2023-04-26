@@ -3,6 +3,7 @@
     .row
       .col-md-2.mt-2
         p = link_to 'Создать товар', new_product_path
+        p = link_to 'Импорт', new_products_import_path
 
       .col-md-10
         = search_form_for @q,
