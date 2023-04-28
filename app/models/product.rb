@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+  include PgSearch::Model
+
   DEFAULT_BARCODE = 2_000_000_200_000
   DEFAULT_SKU = 12_000
 
@@ -12,6 +14,12 @@ class Product < ApplicationRecord
   validates :title, presence: true, uniqueness: true
 
   scope :filter_by_sku, -> (sku) { where('sku LIKE ?', "%#{sku}%") }
+  pg_search_scope :search_products,
+                  against: %i[barcode sku title],
+                  using: {
+                    trigram: { threshold: 0.1 },
+                    tsearch: { prefix: true }
+                  }
 
   def self.ransackable_attributes(auth_object = nil)
     %w[barcode sku title]

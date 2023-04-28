@@ -17,6 +17,7 @@ gem 'jsbundling-rails'
 gem "cocoon"
 gem 'jbuilder'
 gem 'pagy', '~> 6.0'
+gem 'pg_search'
 gem 'phonelib'
 gem 'ransack', '~> 4.0.0'
 gem 'redis', '~> 4.0'
