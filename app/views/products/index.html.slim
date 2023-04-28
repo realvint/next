@@ -6,10 +6,10 @@
         p = link_to 'Импорт', new_products_import_path
 
       .col-md-10
-        = search_form_for @q,
+        = form_with url: products_path, method: :get,
           data: { controller: 'debounce', action: 'input->debounce#submit', turbo_frame: 'products', turbo_action: 'advance' } do |f|
           .input-group.mb-3.mt-2
-            = f.search_field :title_or_sku_has_every_term, placeholder: 'Название, штрихкод или артикул',
+            = f.search_field :q, placeholder: 'Название, штрихкод или артикул',
               autofocus: 'true', class: 'form-control form-control-sm'
 
             button.btn.btn-sm.btn-outline-primary type='submit' title='Искать'

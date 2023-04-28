@@ -4,7 +4,7 @@ tr.align-middle id="#{dom_id(product)}"
 
   td
     = link_to product_path(product), data: { turbo: false } do
-      = highlight(product.title, params.dig(:q, :title_or_sku_has_every_term)&.split)
+      = highlight(product.title, params.dig(:q))
 
   td.text-center
     = product.in_stock

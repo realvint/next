@@ -2,13 +2,8 @@ class ProductsController < ApplicationController
   before_action :set_product, only: %i[show edit update destroy]
 
   def index
-    @q = Product.order(title: :asc).ransack(params[:q])
-    @pagy, @products = pagy(@q.result)
-
-    return unless params[:q].present? && params.dig(:q, :title_or_sku_has_every_term) [/^\d+$/]
-
-    code = params.dig(:q, :title_or_sku_has_every_term)
-    @products = Product.where(barcode: code) if code.size == 13
+    @products = params[:q].present?  ? @products = Product.search_products(params[:q]) : Product.all
+    @pagy, @products = pagy(@products, items: 25)
   end
 
   def show

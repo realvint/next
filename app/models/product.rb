@@ -17,8 +17,11 @@ class Product < ApplicationRecord
   pg_search_scope :search_products,
                   against: %i[barcode sku title],
                   using: {
-                    trigram: { threshold: 0.1 },
-                    tsearch: { prefix: true }
+                    tsearch: {
+                      dictionary: 'russian',
+                      any_word: true,
+                      prefix: true
+                    }
                   }
 
   def self.ransackable_attributes(auth_object = nil)
