@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[show edit update destroy]
+  before_action :set_product, only: %i[show edit update destroy add_elso_image destroy_attachment_image]
 
   def index
     @q = Product.order(title: :asc).ransack(params[:q])
@@ -12,6 +12,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @images = @product.images
   end
 
   def new
@@ -20,7 +21,6 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-
     if @product.save
       redirect_to @product, notice: 'Товар создан'
     else
@@ -52,6 +52,16 @@ class ProductsController < ApplicationController
     render xlsx: "All_products_#{Time.current.strftime('%d-%m-%Y_%H-%M')}", template: 'products/export'
   end
 
+  def add_elso_image
+    @product.add_images(image: params[:images])
+  end
+
+  def destroy_attachment_image
+    image = ActiveStorage::Attachment.find(params[:id])
+    image.purge
+    redirect_back(fallback_location: @product)
+  end
+
   private
 
   def set_product
@@ -59,6 +69,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:title)
+    params.require(:product).permit(:title, images:[])
   end
 end

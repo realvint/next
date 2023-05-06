@@ -1,0 +1,6 @@
+= turbo_frame_tag 'images' do
+  .mt-3
+    -if resource.images.any?
+      - resource.images.each do |image|
+         = image_tag image, class: 'img-thumbnail',width: "100px", height: '80px'
+         = link_to icon('far fa-trash-alt'), product_destroy_image_path(resource, id: image), remote: true, class: 'btn btn-outline-danger btn-sm', data: { turbo_method: :delete }

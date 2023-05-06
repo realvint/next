@@ -15,6 +15,7 @@ gem 'cssbundling-rails'
 gem 'jsbundling-rails'
 
 gem "cocoon"
+gem 'image_processing', '~> 1.2'
 gem 'jbuilder'
 gem 'pagy', '~> 6.0'
 gem 'phonelib'

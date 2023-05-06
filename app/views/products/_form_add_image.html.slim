@@ -1,0 +1,3 @@
+= form_with model: resource do |f|
+  = f.file_field :images, multiple: true, direct_upload: true
+  = f.submit 'Добавить', data: { turbo_method: :patch }, class: 'btn btn-outline-primary btn-sm me-1'
