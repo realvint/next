@@ -1,6 +1,4 @@
 class AttachImagesService
-  REGEXP = /\W/.freeze
-
   def call
     find_attach_product
   end
@@ -9,15 +7,13 @@ class AttachImagesService
 
   def find_attach_product
     all_images_names.each do |image|
-      product ||= Product.find_by('sku like ?', "%#{image.split('-').first}%")
-      attach_image(product, image) if product &&
-                                      product.sku.gsub(REGEXP,'')[1..-1] == image.split('-').first &&
-                                      !repeat_images?(product, image)
+      product ||= Product.find_by(sku: "#{image.split('-').first}")
+      attach_image(product, image) if product && !repeat_images?(product, image)
     end
   end
 
   def all_images_names
-    images ||= Dir.foreach("./tmp/images/").select{ |x| File.basename("#{x}",".*") }
+    images = Dir.foreach("./tmp/images/").select{ |x| File.basename("#{x}",".*") }
   end
 
   def attach_image(product, image)

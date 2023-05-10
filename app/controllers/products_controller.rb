@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[show edit update destroy add_elso_image destroy_attachment_image]
+  before_action :set_product, only: %i[show edit update destroy add_elso_image]
 
   def index
     @q = Product.order(title: :asc).ransack(params[:q])
@@ -57,7 +57,8 @@ class ProductsController < ApplicationController
   end
 
   def destroy_attachment_image
-    image = ActiveStorage::Attachment.find(params[:id])
+    product = Product.find(params[:product_id])
+    image = product.images.find(params[:id])
     image.purge
     redirect_back(fallback_location: @product)
   end
