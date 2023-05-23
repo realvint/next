@@ -15,6 +15,7 @@ gem 'cssbundling-rails'
 gem 'jsbundling-rails'
 
 gem "cocoon"
+gem 'image_processing', '~> 1.2'
 gem 'jbuilder'
 gem 'pagy', '~> 6.0'
 gem 'phonelib'
@@ -22,6 +23,7 @@ gem 'ransack', '~> 4.0.0'
 gem 'redis', '~> 4.0'
 gem 'rubyXL'
 gem 'sassc-rails'
+gem 'sidekiq'
 gem 'slim-rails', '~> 3.6.1'
 gem 'stimulus-rails'
 

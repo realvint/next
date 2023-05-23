@@ -17,6 +17,12 @@
           .form-control.form-control-sm.bg-light
             = @product.sku
 
+  .row
+    .col
+      .mb-2
+        = f.label :images, class: 'form-label'
+        = f.file_field :images, multiple: true, direct_upload: true
+
     .col-md-6
       - if @product.barcode
         .mb-2

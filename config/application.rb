@@ -25,6 +25,7 @@ module NextRemosoftRu
     config.location = 'Europe/Moscow'
     config.i18n.default_locale = :ru
     config.generators.system_tests = nil
+    config.active_job.queue_adapter = :sidekiq
 
     config.active_record.yaml_column_permitted_classes = [Symbol, Date, Time, ActiveSupport::TimeWithZone, ActiveSupport::TimeZone]
   end

@@ -36,3 +36,9 @@
 
         = link_to 'Удалить', @product, class: 'btn btn-outline-danger btn-sm',
           data: { turbo_method: :delete, turbo_confirm: 'Удаляем? точно?' }
+        .mt-3
+          = render '/products/form_add_image', resource: @product
+
+
+        .col-md-12
+          = render '/products/images', resource: @product
